@@ -38,8 +38,10 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	manager.Move();
 }
 
 void Game::ComposeFrame()
 {
+	manager.RenderPoos(gfx);
 }
