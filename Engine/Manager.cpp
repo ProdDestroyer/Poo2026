@@ -1,14 +1,19 @@
 #include "Manager.h"
 #include <random>
 
-Manager::Manager()
+Manager::Manager() :
+	dude({ Graphics::ScreenWidth / 2, Graphics::ScreenHeight / 2 })
 {
 	InitializePoos();
 }
 
-void Manager::Move()
+void Manager::Move(const Position& direction)
 {
-	MovePoos();
+	if (!gameOver) {
+		MovePoos();
+		dude.Move(direction);
+		CheckDudeCollision();
+	}
 }
 
 void Manager::RenderPoos(Graphics& gfx)
@@ -16,6 +21,7 @@ void Manager::RenderPoos(Graphics& gfx)
 	for (int i = 0; i < poosAmount; i++) {
 		poos[i].Render(gfx);
 	}
+	dude.Render(gfx);
 }
 
 void Manager::InitializePoos()
@@ -36,4 +42,19 @@ void Manager::MovePoos()
 	for (int i = 0; i < poosAmount; i++) {
 		poos[i].Move();
 	}
+}
+
+void Manager::CheckDudeCollision()
+{
+	bool notColliding = true;
+	float collisionXDistance = 0;
+	float collisionYDistance = 0;
+	float distanceSquare = (Poo::radius + Dude::radius) * (Poo::radius + Dude::radius);
+	for (int i = 0; i < poosAmount; i++) {
+		collisionXDistance = dude.GetCenterPosition().GetX() - poos[i].center.GetX();
+		collisionYDistance = dude.GetCenterPosition().GetY() - poos[i].center.GetY();
+		notColliding = notColliding && !((collisionXDistance * collisionXDistance) + (collisionYDistance * collisionYDistance) < distanceSquare);
+	}
+
+	gameOver = !notColliding;
 }

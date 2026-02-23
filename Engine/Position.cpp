@@ -1,5 +1,11 @@
 #include "Position.h"
 
+Position::Position(const float x, const float y)
+{
+	this->x = x;
+	this->y = y;
+}
+
 void Position::Initialize(const float x, const float y)
 {
 	this->x = x;

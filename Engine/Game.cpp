@@ -38,7 +38,27 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	manager.Move();
+	int verticalDirection = 0;
+	int horizontalDirection = 0;
+	if (wnd.kbd.KeyIsPressed('W')) {
+		verticalDirection = -1;
+	}
+
+	if (wnd.kbd.KeyIsPressed('S')) {
+		verticalDirection = 1;
+	}
+
+	if (wnd.kbd.KeyIsPressed('A')) {
+		horizontalDirection = -1;
+	}
+
+	if (wnd.kbd.KeyIsPressed('D')) {
+		horizontalDirection = 1;
+	}
+
+	Position direction{ float(horizontalDirection), float(verticalDirection) };
+
+	manager.Move(direction);
 }
 
 void Game::ComposeFrame()
