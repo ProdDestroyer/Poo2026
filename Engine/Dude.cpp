@@ -10,9 +10,9 @@ const Position& Dude::GetCenterPosition() const
 	return center;
 }
 
-void Dude::Move(const Position& direction)
+void Dude::Move(const Position& direction, const float dt)
 {
-	center.Shift(Position{ speed * direction.GetX(), speed * direction.GetY() });
+	center.Shift(Position{ dt * speed * direction.GetX(), dt * speed * direction.GetY() });
 	ClampX();
 	ClampY();
 }
@@ -33,5 +33,3 @@ void Dude::Render(Graphics& gfx) const
 {
 	gfx.DrawCircle(center.GetX(), center.GetY(), radius, Colors::Yellow);
 }
-
-

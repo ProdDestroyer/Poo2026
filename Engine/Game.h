@@ -24,6 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Manager.h"
+#include "TimeStamp.h"
 
 class Game
 {
@@ -42,6 +43,7 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	Manager manager;
+	TimeStamp timeStamp;
 	/********************************/
 	/*  User Variables              */
 	/********************************/

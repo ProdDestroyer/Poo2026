@@ -7,11 +7,11 @@ Manager::Manager() :
 	InitializePoos();
 }
 
-void Manager::Move(const Position& direction)
+void Manager::Move(const Position& direction, const float dt)
 {
 	if (!gameOver) {
-		MovePoos();
-		dude.Move(direction);
+		MovePoos(dt);
+		dude.Move(direction, dt);
 		CheckDudeCollision();
 	}
 }
@@ -33,14 +33,14 @@ void Manager::InitializePoos()
 	std::uniform_real_distribution<float>  VDist(-1.0f, 1.0f);
 
 	for (int i = 0; i < poosAmount; i++) {
-		poos[i].Initialize(XDist(rng), YDist(rng), VDist(rng), VDist(rng));
+		poos[i].Initialize(XDist(rng), YDist(rng), VDist(rng) * 60.0f, VDist(rng) * 60.0f);
 	}
 }
 
-void Manager::MovePoos()
+void Manager::MovePoos(const float dt)
 {
 	for (int i = 0; i < poosAmount; i++) {
-		poos[i].Move();
+		poos[i].Move(dt);
 	}
 }
 

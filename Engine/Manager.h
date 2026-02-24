@@ -4,11 +4,11 @@
 class Manager {
 public:
 	Manager();
-	void Move(const Position& direction);
+	void Move(const Position& direction, const float dt);
 	void RenderPoos(Graphics& gfx);
 private:
 	void InitializePoos();
-	void MovePoos();
+	void MovePoos(const float dt);
 	void CheckDudeCollision();
 	static constexpr int poosAmount = 20;
 	Poo poos[poosAmount];

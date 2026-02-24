@@ -7,7 +7,7 @@ public:
 	Position center;
 	Position speed;
 	void Render(Graphics& gfx) const;
-	void Move();
+	void Move(const float dt);
 	static constexpr int radius = 20;
 private:
 	void ClampX();

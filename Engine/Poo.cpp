@@ -11,11 +11,11 @@ void Poo::Render(Graphics& gfx) const
 	gfx.DrawCircle(center.GetX(), center.GetY(), radius, {139, 69, 19});
 }
 
-void Poo::Move()
+void Poo::Move(const float dt)
 {
 	ClampX();
 	ClampY();
-	center.Shift(speed);
+	center.Shift({speed.GetX() * dt, speed.GetY() * dt});
 }
 
 

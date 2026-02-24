@@ -5,10 +5,10 @@ class Dude {
 public:
 	Dude(const Position& center);
 	const Position& GetCenterPosition() const;
-	void Move(const Position& direction);
+	void Move(const Position& direction, const float dt);
 	void Render(Graphics& gfx) const;
 	static constexpr int radius = 15;
-	static constexpr float speed = 1.0f;
+	static constexpr float speed = 60.0f;
 private:
 	Position center;
 	void ClampX();

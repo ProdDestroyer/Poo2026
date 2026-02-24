@@ -38,8 +38,10 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = timeStamp.GetDelta();
 	int verticalDirection = 0;
 	int horizontalDirection = 0;
+
 	if (wnd.kbd.KeyIsPressed('W')) {
 		verticalDirection = -1;
 	}
@@ -58,7 +60,7 @@ void Game::UpdateModel()
 
 	Position direction{ float(horizontalDirection), float(verticalDirection) };
 
-	manager.Move(direction);
+	manager.Move(direction, dt);
 }
 
 void Game::ComposeFrame()

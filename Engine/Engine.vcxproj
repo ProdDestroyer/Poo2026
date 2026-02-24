@@ -153,6 +153,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundEffect.h" />
+    <ClInclude Include="TimeStamp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="COMInitializer.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Poo.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="TimeStamp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
