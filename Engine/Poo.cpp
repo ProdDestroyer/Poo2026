@@ -2,8 +2,8 @@
 
 void Poo::Initialize(const float x, const float y, const float vx, const float vy)
 {
-	center.Initialize(x, y);
-	speed.Initialize(vx, vy);
+	center = Vec2D(x, y);
+	speed = Vec2D(vx, vy);
 }
 
 void Poo::Render(Graphics& gfx) const
@@ -15,30 +15,30 @@ void Poo::Move(const float dt)
 {
 	ClampX();
 	ClampY();
-	center.Shift({speed.GetX() * dt, speed.GetY() * dt});
+	center += speed * dt;
 }
 
 
 void Poo::ClampX()
 {
 	if (center.GetX() + speed.GetX() - radius < 0 || center.GetX() + radius + speed.GetX() > Graphics::ScreenWidth) {
-		speed.InvertX();
+		speed = Vec2D(-speed.GetX(), speed.GetY());
 	}
 }
 
 void Poo::ClampY()
 {
 	if (center.GetY() + speed.GetY() - radius < 0 || center.GetY() + radius  + speed.GetY() > Graphics::ScreenHeight) {
-		speed.InvertY();
+		speed = Vec2D(speed.GetX(), -speed.GetY());
 	}
 }
 
-const Position& Poo::GetCenter() const
+const Vec2D& Poo::GetCenter() const
 {
 	return center;
 }
 
-const Position& Poo::GetSpeed() const
+const Vec2D& Poo::GetSpeed() const
 {
 	return speed;
 }

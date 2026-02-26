@@ -4,7 +4,7 @@
 class Manager {
 public:
 	Manager();
-	void Move(const Position& direction, const float dt);
+	void Move(const Vec2D& direction, const float dt);
 	void RenderPoos(Graphics& gfx);
 private:
 	void InitializePoos();

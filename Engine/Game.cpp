@@ -58,7 +58,7 @@ void Game::UpdateModel()
 		horizontalDirection = 1;
 	}
 
-	Position direction{ float(horizontalDirection), float(verticalDirection) };
+	Vec2D direction{ float(horizontalDirection), float(verticalDirection) };
 
 	manager.Move(direction, dt);
 }

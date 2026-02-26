@@ -7,7 +7,7 @@ Manager::Manager() :
 	InitializePoos();
 }
 
-void Manager::Move(const Position& direction, const float dt)
+void Manager::Move(const Vec2D& direction, const float dt)
 {
 	if (!gameOver) {
 		MovePoos(dt);

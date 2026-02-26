@@ -154,6 +154,7 @@
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundEffect.h" />
     <ClInclude Include="TimeStamp.h" />
+    <ClInclude Include="Vec2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="COMInitializer.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="TimeStamp.cpp" />
+    <ClCompile Include="Vec2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">

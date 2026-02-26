@@ -1,16 +1,16 @@
 #pragma once
-#include "Position.h"
+#include "Vec2D.h"
 #include "Graphics.h"
 class Dude {
 public:
-	Dude(const Position& center);
-	const Position& GetCenterPosition() const;
-	void Move(const Position& direction, const float dt);
+	Dude(const Vec2D& center);
+	const Vec2D& GetCenterPosition() const;
+	void Move(const Vec2D& direction, const float dt);
 	void Render(Graphics& gfx) const;
 	static constexpr int radius = 15;
 	static constexpr float speed = 60.0f;
 private:
-	Position center;
+	Vec2D center;
 	void ClampX();
 	void ClampY();
 };
