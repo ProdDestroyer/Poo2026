@@ -7,11 +7,11 @@ Manager::Manager() :
 	InitializePoos();
 }
 
-void Manager::Move(const Vec2D& direction, const float dt)
+void Manager::Move(const Vec2D& mousePoint, const float dt)
 {
 	if (!gameOver) {
 		MovePoos(dt);
-		dude.Move(direction, dt);
+		dude.Move(mousePoint, dt);
 		CheckDudeCollision();
 	}
 }

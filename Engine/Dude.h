@@ -5,7 +5,7 @@ class Dude {
 public:
 	Dude(const Vec2D& center);
 	const Vec2D& GetCenterPosition() const;
-	void Move(const Vec2D& direction, const float dt);
+	void Move(const Vec2D& mousePoint, const float dt);
 	void Render(Graphics& gfx) const;
 	static constexpr int radius = 15;
 	static constexpr float speed = 60.0f;

@@ -39,28 +39,16 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	const float dt = timeStamp.GetDelta();
-	int verticalDirection = 0;
-	int horizontalDirection = 0;
-
-	if (wnd.kbd.KeyIsPressed('W')) {
-		verticalDirection = -1;
+	float mouseX = 0;
+	float mouseY = 0;
+	if (wnd.mouse.LeftIsPressed()) {
+		mouseX = wnd.mouse.GetPosX();
+		mouseY = wnd.mouse.GetPosY();
 	}
 
-	if (wnd.kbd.KeyIsPressed('S')) {
-		verticalDirection = 1;
-	}
+	Vec2D mousePoint{ mouseX, mouseY };
 
-	if (wnd.kbd.KeyIsPressed('A')) {
-		horizontalDirection = -1;
-	}
-
-	if (wnd.kbd.KeyIsPressed('D')) {
-		horizontalDirection = 1;
-	}
-
-	Vec2D direction{ float(horizontalDirection), float(verticalDirection) };
-
-	manager.Move(direction, dt);
+	manager.Move(mousePoint, dt);
 }
 
 void Game::ComposeFrame()

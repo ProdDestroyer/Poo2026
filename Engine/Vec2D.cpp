@@ -39,7 +39,7 @@ Vec2D& Vec2D::operator-=(const Vec2D& rhs)
 
 Vec2D Vec2D::Normalize() const
 {
-	return *this * (1/Length());
+	return (SqrdLength() == 0.0f) ? *this : *this * (1/Length());
 }
 
 Vec2D& Vec2D::Normalized()

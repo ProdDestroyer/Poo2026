@@ -10,11 +10,13 @@ const Vec2D& Dude::GetCenterPosition() const
 	return center;
 }
 
-void Dude::Move(const Vec2D& direction, const float dt)
+void Dude::Move(const Vec2D& mousePoint, const float dt)
 {
-	center += (direction * (dt * speed));
-	ClampX();
-	ClampY();
+	if (mousePoint.SqrdLength() != 0.0f) {
+		center += ((mousePoint - center).Normalized() * (dt * speed));
+		ClampX();
+		ClampY();
+	}
 }
 
 void Dude::ClampX() {
